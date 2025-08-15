@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Adopt a Dog - Pawfet's</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff8f0;
+      color: #333;
+    }
+
+    header {
+      background-color: #A0522D;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    .content h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .content p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .dog-card {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .dog {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      width: calc(33% - 20px);
+      min-width: 250px;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .dog img {
+      max-width: 100%;
+      border-radius: 12px;
+    }
+
+    .dog h3 {
+      margin-top: 10px;
+      font-size: 20px;
+    }
+
+    .dog button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #A0522D;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .dog button:hover {
+      background: #8B4513;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Adopt a Dog</h1>
+  </header>
+
+  <div class="content">
+    <h2>Find your perfect companion</h2>
+    <p>Browse the list of dogs available for adoption. Click “Adopt Me” to get started.</p>
+
+    <div class="dog-card">
+      <div class="dog">
+        <img src="https://placedog.net/400?id=1" alt="Dog 1">
+        <h3>Buddy</h3>
+        <button>Adopt Me</button>
+      </div>
+      <div class="dog">
+        <img src="https://placedog.net/400?id=2" alt="Dog 2">
+        <h3>Luna</h3>
+        <button>Adopt Me</button>
+      </div>
+      <div class="dog">
+        <img src="https://placedog.net/400?id=3" alt="Dog 3">
+        <h3>Max</h3>
+        <button>Adopt Me</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

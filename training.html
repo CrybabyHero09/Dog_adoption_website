@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dog Training - Pawfet's</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fffefc;
+      color: #333;
+    }
+
+    header {
+      background-color: #556B2F;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .training-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: calc(33% - 20px);
+      min-width: 250px;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .card img {
+      max-width: 100%;
+      border-radius: 12px;
+    }
+
+    .card h3 {
+      margin-top: 10px;
+    }
+
+    .card button {
+      background-color: #6B8E23;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    .card button:hover {
+      background-color: #4b6618;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Dog Training</h1>
+  </header>
+
+  <div class="content">
+    <h2>Train Your Dog the Right Way</h2>
+    <p>Choose from basic obedience, behavior correction, and advanced skills training for your furry friend.</p>
+
+    <div class="training-cards">
+      <div class="card">
+        <img src="https://placedog.net/401" alt="Obedience Training">
+        <h3>Obedience</h3>
+        <button>View Details</button>
+      </div>
+      <div class="card">
+        <img src="https://placedog.net/402" alt="Behavior Training">
+        <h3>Behavior Correction</h3>
+        <button>View Details</button>
+      </div>
+      <div class="card">
+        <img src="https://placedog.net/403" alt="Advanced Skills">
+        <h3>Advanced Skills</h3>
+        <button>View Details</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
