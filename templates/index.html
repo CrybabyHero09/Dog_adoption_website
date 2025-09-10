@@ -6,8 +6,9 @@
         </title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link rel="stylesheet" href="styles.css">
-        <script src="script.js"></script>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+        
     </head>
     
     <body>
@@ -21,51 +22,45 @@
             </div>
             </div>
             <div class="nav-btn">
-                <button class="log-btn" onclick="goToLogin()">Log In</button>
-                <button class="signup-btn" onclick="goToSignup()">Sign up</button>
-                <div class="hamburger" id="hamburger">&#9776;</div>
-            </div>
+    {% if logged_in %}
+      <form action="{{ url_for('auth.logout') }}" method="POST" style="display:inline;">
+        <button type="submit" class="log-btn">Logout</button>
+      </form>
+    {% else %}
+      <button class="log-btn" onclick="goToLogin()">Log In</button>
+      <button class="signup-btn" onclick="goToSignup()">Sign Up</button>
+    {% endif %}
+    <div class="hamburger" id="hamburger">&#9776;</div>
+</div>
+
         </nav>
 
         <div class="dropdown" id="dropdown">
-    <a href="#">Home</a>
-    <a href="#">Adopt</a>
-    <a href="#">Donate</a>
-    <a href="#">Contact</a>
-    <button class="btn login">Log In</button>
-    <button class="btn signup">Sign Up</button>
+    <a href="{{ url_for('main.home') }}">Home</a>
+    <a href="{{ url_for('main.adopt') }}">Adopt</a>
+    <a href="{{ url_for('main.donate') }}">Donate</a>
+    {% if logged_in %}
+    <form action="{{ url_for('auth.logout') }}" method="POST" style="margin:10px;">
+      <button type="submit" class="log-btn">Logout</button>
+    </form>
+  {% else %}
+    <a href="{{ url_for('auth.login') }}"><button class="log-btn">Log In</button></a>
+    <a href="{{ url_for('auth.signup') }}"><button class="signup-btn">Sign Up</button></a>
+  {% endif %}
   </div>
-
-  <section class="hero-slider">
-  <div class="slides" id="slides">
-    <div class="slide">
-      <div class="overlay">
-        <h1>Adopt a Friend Today</h1>
-        <p>Your perfect companion is waiting!</p>
-        <button class="adopt-btn" onclick="location.href='adopt.html'">Adopt Now</button>
-      </div>
-    </div>
-    <div class="slide">
-      <div class="overlay">
-        <h1>Be Their Hero</h1>
-        <p>Give a dog a second chance at life.</p>
-        <button class="adopt-btn" onclick="location.href='donate.html'">Save a Life</button>
-      </div>
-    </div>
-    <div class="slide">
-      <div class="overlay">
-        <h1>Paws & Love</h1>
-        <p>Every tail deserves a happy ending.</p>
-        <button class="adopt-btn" onclick="location.href='adopt.html'">Join Us</button>
-      </div>
-    </div>
 
     <!-- Duplicate first slide for smooth loop -->
     <div class="slide">
       <div class="overlay">
         <h1>Adopt a Friend Today</h1>
         <p>Your perfect companion is waiting!</p>
-        <button class="adopt-btn" onclick="location.href='adopt.html'">Adopt Now</button>
+        <a href="{{ url_for('main.adopt') }}">
+    <button type="button" class="adopt-btn">Adopt Now</button>
+</a>
+
+</a>
+
+
       </div>
     </div>
   </div>
@@ -80,25 +75,25 @@
     <img src="https://images.pexels.com/photos/4587993/pexels-photo-4587993.jpeg" alt="Adopt a Dog" />
     <h3>Adopt a Dog</h3>
     <p>Find your new best friend. Adopt now!</p>
-    <a href="adopt.html" class="card-btn">Explore</a>
+    <a href="{{ url_for('main.adopt') }}" class="card-btn">Explore</a>
   </div>
   <div class="card">
     <img src="https://images.pexels.com/photos/5731867/pexels-photo-5731867.jpeg" alt="Dog Food" />
     <h3>Dog Food</h3>
     <p>Buy healthy meals and tasty treats.</p>
-    <a href="food.html" class="card-btn">Shop</a>
+    <a href="{{ url_for('main.food') }}" class="card-btn">Shop</a>
   </div>
   <div class="card">
     <img src="https://images.pexels.com/photos/7210708/pexels-photo-7210708.jpeg" alt="Training" />
     <h3>Training Videos</h3>
     <p>Learn how to train your pup step by step.</p>
-    <a href="training.html" class="card-btn">Watch</a>
+    <a href="{{ url_for('main.training') }}" class="card-btn">Watch</a>
   </div>
   <div class="card">
         <img src="https://images.pexels.com/photos/4587994/pexels-photo-4587994.jpeg" alt="Donate" />
     <h3>Donate & Support</h3>
     <p>Help dogs in need with your kind support.</p>
-    <a href="donate.html" class="card-btn">Donate</a>
+    <a href="{{ url_for('main.donate') }}" class="card-btn">Donate</a>
   </div>
 </section>
 
@@ -111,10 +106,9 @@
     <div class="footer-section links">
       <h2>Quick Links</h2>
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="adopt.html">Adopt</a></li>
-        <li><a href="donate.html">Donate</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="{{ url_for('main.home') }}">Home</a></li>
+        <li><a href="{{ url_for('main.adopt') }}">Adopt</a></li>
+        <li><a href="{{ url_for('main.donate') }}">Donate</a></li>
       </ul>
     </div>
     <div class="footer-section contact">

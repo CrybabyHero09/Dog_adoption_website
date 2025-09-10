@@ -8,9 +8,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 function goToLogin() {
-  window.location.href = "login.html";
+  window.location.href = "/login";
 }
 
 function goToSignup() {
-  window.location.href = "signup.html";
+  window.location.href = "/signup";
 }
